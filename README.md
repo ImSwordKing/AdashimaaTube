@@ -2,8 +2,8 @@
 <div align="center">
 <!-- [![Message](badge-url)](your-url) -->
 
-# AdashimaaTube
-Restore old Youtube layout in 2021-2022 with many customizable options. 
+# Watch9AdashimaaTube
+Fork of AdashimaaTube made to work with [Old Icons Restorer](https://greasyfork.org/en/scripts/454534-youtube-old-icons-restorer) and [Watch9 Reconstruct](https://github.com/aubymori/Watch9Reconstruct) specifically. (WIP)
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 
