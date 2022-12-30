@@ -809,46 +809,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
         display: none i;
     }
 
-    /* Remove description*/
-    #bottom-row {
-        display: none i;
-    }
-
-    /* Removes toolbar menu such as share download thanks clip and save btn*/
-    #menu-container {
-        display: none i;
-    }
-
-    /* Removes videos title*/
-    ytd-video-primary-info-renderer #container > :not(#info) {
-        display: none i;
-    }
-
-    ytd-video-primary-info-renderer {
-        border: none;
-        position: relative;
-        padding: 0 i;
-        bottom: 0 i;
-    }
-
-    /* Move description up */
-    ytd-video-secondary-info-renderer {
-        margin-top: -20px;
-    }
-
-    ytd-watch-metadata > ytd-metadata-row-container-renderer {
-        display: none;
-    }
-
-    /* Move view count, date and description up */
-    .style-scope.ytd-watch-flexy #container #info-text {
-        margin-top: -115px;
-    }
-
-    #top-row.ytd-watch-metadata {
-        flex-direction: column-reverse i; // bottom to top vertical
-    }
-
     /* Moved the ratio bar to the right of its normal position. */
     .ryd-tooltip-bar-container {
         right: -6px
