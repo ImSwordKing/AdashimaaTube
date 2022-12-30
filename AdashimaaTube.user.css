@@ -1,10 +1,11 @@
 /* ==UserStyle==
-@name           `AdashimaaTube
+@name           `Watch9AdashimaaTube
 @author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan) [Adashima#4066]
-@description    Please report bugs via github issues or my email (If I have some free time, I'll fix them)
+@author         ImSwordKing (https://github.com/ImSwordKing)
+@description    Please report bugs via github issues
 @namespace      https://github.com/ImSwordKing
-@homepageURL    https://github.com/ImSwordKing/AdashimaaTube
-@supportURL     https://github.com/ImSwordKing/AdashimaaTube/issues
+@homepageURL    https://github.com/ImSwordKing/Watch9AdashimaaTube
+@supportURL     https://github.com/ImSwordKing/Watch9AdashimaaTube/issues
 @version        2.6.7
 @license        MIT
 @preprocessor   stylus
@@ -31,6 +32,7 @@
 @advanced checkbox searchResultsColumn      "  🔎 Search Results In A Grid Layout" 1
 
 @advanced select customVideoDetails         "⚒️ Custom Video Details" ["Enabled", "Disabled"]
+@advanced checkbox NotifSub                 "  🫣 Hide 'Subscribed' in the Notification Bell" 1
 @advanced checkbox shareBtn                 "  🫣 Hide Share Button" 0
 @advanced checkbox downloadBtn              "  🫣 Hide Download Button" 0
 @advanced checkbox clipBtn                  "  🫣 Hide Clip Button" 0
@@ -914,7 +916,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 	
 	/* Remove "Subscribed" from the notification bell */
 	.yt-spec-button-shape-next--icon-leading-trailing.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next > .yt-spec-button-shape-next--button-text-content.cbox > .yt-core-attributed-string--white-space-no-wrap.yt-core-attributed-string {
-		display: none;
+		display: none if NotifSub;
 		}
 
     /* Removes the bold letters on upload date and view count. */
