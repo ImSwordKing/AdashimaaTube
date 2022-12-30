@@ -15,12 +15,6 @@ Restore old Youtube layout in 2021-2022 with many customizable options.
 - [Watch9 Reconstruct](https://github.com/aubymori/Watch9Reconstruct)
 - [YouTube - Proper Description](https://greasyfork.org/en/scripts/440613-youtube-proper-description)
 
-<div align="center">
-
-### 🔧 Menu Options
-<img src="https://i.imgur.com/XufBf6g.png" sytle="text-align: center"/>
-</div>
-
 ## 📂 Installation
 You have to install [Stylus](https://add0n.com/stylus.html) and then click on the install link below or watch the [Tutorial](https://www.youtube.com/watch?v=Fpmw1Vh7sz8&t).
 
@@ -50,18 +44,13 @@ However, by following these steps, you can enable Firefox's has() selector.
 2. Search and toggle `layout.css.has-selector.enabled`.
 ![](https://i.imgur.com/Zcz4SnR.png)
 
-#### 💬 Why sometimes the ratio bar has disappeared randomly?
-It's a bug.
-
-![](https://i.imgur.com/6gMeVJh.png)
-
 ## ✅ Supported extensions
 - [uBlock Origin](https://ublockorigin.com/)
 - [Return YouTube Dislike](https://www.returnyoutubedislike.com/)
 - [Thumbnail Rating Bar for YouTube™](https://chrome.google.com/webstore/detail/thumbnail-rating-bar-for/cmlddjbnoehmihdmfhaacemlpgfbpoeb/related)
 
-## 💰 Support me
-If you like this project you can tip me for my hard work at 
+## 💰 Support the original creator
+If you like this project you can tip the original creator for their hard work at 
 
 [![ko-fi.com](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/sapondanaisriwan)
 
