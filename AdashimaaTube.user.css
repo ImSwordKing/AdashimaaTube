@@ -867,22 +867,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
         padding-bottom: 10px i;
     }
 
-    /* Move a title videos down */
-    ytd-watch-metadata #title {
-        position: relative;
-        bottom: -4px
-    }
-
     /* Reverts the video title font. */
     h1.ytd-watch-metadata {
         font-family: "Roboto", sans-serif;
         font-weight: 400 i;
         font-size: 18px i; // line-height: unset;
-    }
-
-    /* Remove channel */
-    #owner {
-        display: none i;
     }
 
     /* Moved the ratio bar to the right of its normal position. */
