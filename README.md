@@ -13,6 +13,7 @@ Fork of AdashimaaTube made to work with [Old Icons Restorer](https://greasyfork.
 ## ✅ Recommended Scripts and Extensions to use with this fork
 - [Old Icons Restorer (updated with old dialog boxes and old color)](https://greasyfork.org/en/scripts/454534-youtube-old-icons-restorer)
 - [Watch9 Reconstruct](https://github.com/aubymori/Watch9Reconstruct)
+- [YouTube Patch Collection](https://raw.githubusercontent.com/aubymori/YouTubePatchCollection/)
 - [YouTube - Proper Description](https://greasyfork.org/en/scripts/440613-youtube-proper-description)
 
 ## 📂 Installation
