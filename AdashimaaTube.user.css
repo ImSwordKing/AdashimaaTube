@@ -6,7 +6,7 @@
 @namespace      https://github.com/ImSwordKing
 @homepageURL    https://github.com/ImSwordKing/Watch9AdashimaaTube
 @supportURL     https://github.com/ImSwordKing/Watch9AdashimaaTube/issues
-@version        2.6.9.1
+@version        2.6.9.2
 @license        MIT
 @preprocessor   stylus
 
@@ -32,9 +32,9 @@
 @advanced checkbox searchResultsColumn      "  🔎 Search Results In A Grid Layout" 1
 
 @advanced select customVideoDetails         "⚒️ Custom Video Details" ["Enabled", "Disabled"]
-@advanced checkbox NotifSub                 "  🔔 Hide 'Subscribed' in the Notification Bell" 1
+@advanced checkbox NotifSub                 "  🔔 Hide Subscribed Bell Text" 1
 @advanced checkbox bellIcon                 "  🔔 Hide Bell Icon" 0
-@advanced checkbox AmbGone                  "  ✨ Remove 'Ambient Mode' Option" 1
+@advanced checkbox AmbGone                  "  ✨ Hide Ambient Mode Option" 1
 @advanced checkbox shareBtn                 "  ➡️ Hide Share Button" 0
 @advanced checkbox downloadBtn              "  ⬇️ Hide Download Button" 0
 @advanced checkbox clipBtn                  "  ✂️ Hide Clip Button" 0
