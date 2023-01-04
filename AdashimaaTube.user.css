@@ -13,7 +13,7 @@
 @advanced checkbox antiShorts               "❌ Anti-Shorts" 1
 @advanced range customAvatarRadius          "⚙️ Avatar Roundness" [50, 0, 50, 1, '%']
 @advanced range customBorderRadius          "⚙️ Border Radius" [0, 0, 24, 1, 'px']
-@advanced color SubBtnColor                 "  🎨 Subscribe Button Color (New button only)" #FF0000
+@advanced color SubBtnColor                 "🎨 Subscribe Button Color (New button only)" #FF0000
 @advanced checkbox verifiedBadge            "✅ Blue Verified Badge" 0
 @advanced checkbox centeredSearchResults    "🔎 Centered The Search Results" 0
 @advanced checkbox displayFullTitle         "🎦 Display Full Title For Videos" 0
