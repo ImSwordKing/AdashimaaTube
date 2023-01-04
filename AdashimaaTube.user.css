@@ -6,7 +6,7 @@
 @namespace      https://github.com/ImSwordKing
 @homepageURL    https://github.com/ImSwordKing/Watch9AdashimaaTube
 @supportURL     https://github.com/ImSwordKing/Watch9AdashimaaTube/issues
-@version        2.6.9.3
+@version        2.6.9.4
 @license        MIT
 @preprocessor   stylus
 
@@ -50,6 +50,7 @@
 @advanced checkbox navigationBar            "  🌑 Dark Navigation Bar" 0
 @advanced checkbox searchBox                "  🌑 Dark Search Box" 0
 @advanced checkbox scroll_Bar               "  🌑 Dark Scroll Bar" 0
+@advanced color SubBtnColor                 "  🎨 Subscribe Button Color" #FF0000
 
 @advanced select customLikeDislike          "⚒️ Custom Colors For Like/Dislike" ["Enabled", "Disabled"]
 @advanced checkbox customThumbs             "  🗿 Colorize Thumbs" 0
@@ -1026,13 +1027,13 @@ Support me: https://ko-fi.com/sapondanaisriwan
     ytd-subscribe-button-renderer {
         yt-button-shape {
 
-            /* Red Subscribed button */
+            /* Subscribed button */
             button,
             a[aria-label="Subscribe"] {
                 /* InPrivate */
                 border-radius: customBorderRadius;
                 color: var(--yt-spec-static-brand-white) i;
-                background-color: var(--yt-spec-brand-button-background) i;
+                background-color: SubBtnColor i;
             }
 
             /* Unsubscribe button */
@@ -1124,7 +1125,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             &[aria-label^="Subskrybuj kanał"] {
                 border-radius: customBorderRadius;
                 color: var(--yt-spec-static-brand-white) i;
-                background-color: var(--yt-spec-brand-button-background) i;
+                background-color: SubBtnColor i;
             }
         }
     }
