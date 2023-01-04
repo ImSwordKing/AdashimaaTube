@@ -6,13 +6,14 @@
 @namespace      https://github.com/ImSwordKing
 @homepageURL    https://github.com/ImSwordKing/Watch9AdashimaaTube
 @supportURL     https://github.com/ImSwordKing/Watch9AdashimaaTube/issues
-@version        2.6.9.4
+@version        2.6.9.5
 @license        MIT
 @preprocessor   stylus
 
 @advanced checkbox antiShorts               "❌ Anti-Shorts" 1
 @advanced range customAvatarRadius          "⚙️ Avatar Roundness" [50, 0, 50, 1, '%']
 @advanced range customBorderRadius          "⚙️ Border Radius" [0, 0, 24, 1, 'px']
+@advanced color SubBtnColor                 "  🎨 Subscribe Button Color (New button only)" #FF0000
 @advanced checkbox verifiedBadge            "✅ Blue Verified Badge" 0
 @advanced checkbox centeredSearchResults    "🔎 Centered The Search Results" 0
 @advanced checkbox displayFullTitle         "🎦 Display Full Title For Videos" 0
@@ -50,7 +51,6 @@
 @advanced checkbox navigationBar            "  🌑 Dark Navigation Bar" 0
 @advanced checkbox searchBox                "  🌑 Dark Search Box" 0
 @advanced checkbox scroll_Bar               "  🌑 Dark Scroll Bar" 0
-@advanced color SubBtnColor                 "  🎨 Subscribe Button Color" #FF0000
 
 @advanced select customLikeDislike          "⚒️ Custom Colors For Like/Dislike" ["Enabled", "Disabled"]
 @advanced checkbox customThumbs             "  🗿 Colorize Thumbs" 0
@@ -956,6 +956,12 @@ Support me: https://ko-fi.com/sapondanaisriwan
 	.yt-spec-button-shape-next--icon-leading-trailing.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next > .yt-spec-button-shape-next--button-text-content.cbox > .yt-core-attributed-string--white-space-no-wrap.yt-core-attributed-string {
 		display: none if NotifSub;
 		}
+		
+    /* Fix Legacy Subscribe button (Thx BroDadi on the 7kttube discord) */
+	tp-yt-paper-button.style-scope.ytd-subscribe-button-renderer {
+		display: flex!important;
+		}
+
 
 	/* Remove "Ambient Mode" from settings */
 	#ytp-id-18 > .ytp-panel > .ytp-panel-menu > div.ytp-menuitem:nth-of-type(1) {
