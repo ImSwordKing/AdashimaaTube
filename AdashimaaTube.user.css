@@ -725,13 +725,15 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     /* ⚒️ Custom Like/Dislike Button Color */
     /* 👍 Like Button Color */
-if (customLikeDislike=="Enabled") {
-	/* Video container */
-	/* 👍 Like Button Color */
-		#segmented-like-button button {
-		&[aria-pressed="false"] yt-icon path {
-			stroke: likeBtnColor if customThumbs;
-			}
+	if (customLikeDislike=="Enabled") {
+		/* Video container */
+			/* 👍 Like Button Color */
+				#segmented-like-button button {
+					&[aria-pressed="false"] yt-icon path {
+						stroke: likeBtnColor if customThumbs;
+						}
+				}
+	}
 			
 		&[aria-pressed="true"] yt-icon path {
 			fill: likeBtnColor i;
