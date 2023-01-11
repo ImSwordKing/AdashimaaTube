@@ -6,7 +6,7 @@
 @namespace      https://github.com/ImSwordKing
 @homepageURL    https://github.com/ImSwordKing/Watch9AdashimaaTube
 @supportURL     https://github.com/ImSwordKing/Watch9AdashimaaTube/issues
-@version        2.7.4.1
+@version        2.7.4.2
 @license        MIT
 @preprocessor   stylus
 
@@ -52,7 +52,7 @@
 @advanced checkbox searchBox                "  🌑 Dark Search Box" 0
 @advanced checkbox scroll_Bar               "  🌑 Dark Scroll Bar" 0
 
-@advanced select customLikeDislike          "⚒️ Custom Colors For Like/Dislike" ["Enabled", "Disabled"]
+@advanced select customLikeDislike          "⚒️ Custom Colors For Like/Dislike (Won't play nice with Old Icons)" ["Enabled", "Disabled"]
 @advanced checkbox customThumbs             "  🗿 Colorize Thumbs" 0
 @advanced color likeBtnColor                "  👍 Like Button Color" #3ea6ff
 @advanced color dislikeBtnColor             "  👎 Dislike Button Color" #3ea6ff
