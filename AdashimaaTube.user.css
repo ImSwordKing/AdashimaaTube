@@ -756,6 +756,7 @@ if (customLikeDislike=="Enabled") {
         & yt-button-shape button[aria-pressed="true"] yt-icon {
 			fill: likeBtnColor i;
         }
+	}
     #dislike-button {
         & yt-button-shape button[aria-pressed="true"] yt-icon {
 			fill: dislikeBtnColor i;
