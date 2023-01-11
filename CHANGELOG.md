@@ -1,8 +1,43 @@
 ## Changelog
 
+### v1.7.4
+- Remove "Restore old playlist" and "Custom Colors For Like/Dislike" (It made the menu setting being messy)
+
+### v1.7.3
+- Resolved a slow site issue caused by my mistake
+- Remove "Custom colors for ratio bar"(It made the menu setting being messy and it's useless without Return Youtube Dislike)
+
+### v1.7.2
+- Add "Remove Like Animation" option.
+
+![new bug](https://i.imgur.com/XINGCsZ.gif)
+- Remove more border radius and shorts.
+- Removes bell icon from the channel feed in subscription.
+- Fixed the input text color for light theme users when you enable the "Restore Old Playlist" option.
+![](https://i.imgur.com/lTokKrD.png)
+
+- Fixed "Centered the search results".
+![](https://i.imgur.com/RlInnzM.jpeg)
+
+- Bring back "Blue Check Mark" and "Restore Old Playlist" because some people don't like the last 2 update.
+
+### v1.7.1
+- Remove more border radius.
+- Remove "Hide Bell Icon"
+- Revert back to the old subscribed button.
+![](https://i.imgur.com/vy8ytLo.png)
+
+- Add more the old icons and fixed the "Like" button.
+![](https://i.imgur.com/uItY5oH.png)
+
+### v1.7.0
+- Add "Restore Old Icon"
+- Remove "Blue Verified Badge" and "Restore Old Playlist" Options.
+- Rename "Avatar Roundness" to "Profile Roundness".
+- Fixed Profile is rounded while typing in the comment section.
+
 ### v1.6.9
 - "Anti-Shorts" and "Centered the search results" are enabled by default.
-- I hope you enjoy this project and maybe there won't be any more updates. 😊
 
 ### v1.6.8
 - Add "Hide Bell Icon" options.
