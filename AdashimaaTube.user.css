@@ -6,7 +6,7 @@
 @namespace      https://github.com/ImSwordKing
 @homepageURL    https://github.com/ImSwordKing/Watch9AdashimaaTube
 @supportURL     https://github.com/ImSwordKing/Watch9AdashimaaTube/issues
-@version        2.7.4
+@version        2.7.4.1
 @license        MIT
 @preprocessor   stylus
 
@@ -725,22 +725,40 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     /* ⚒️ Custom Like/Dislike Button Color */
     /* 👍 Like Button Color */
-    #segmented-like-button button[aria-pressed="true"] yt-icon path {
-        fill: var(--color1) i;
-        stroke: var(--color1) i;
-    }
+if (customLikeDislike=="Enabled") {
+	/* Video container */
+	/* 👍 Like Button Color */
+		#segmented-like-button button {
+		&[aria-pressed="false"] yt-icon path {
+			stroke: likeBtnColor if customThumbs;
+			}
+			
+		&[aria-pressed="true"] yt-icon path {
+			fill: likeBtnColor i;
+			stroke: likeBtnColor i;
+		}
+	}
 
     /* 👎 Dislike Button Color */
-    #segmented-dislike-button button[aria-pressed="true"] yt-icon path {
-        fill: var(--color1) i;
+	#segmented-dislike-button button {
+		&[aria-pressed="false"] yt-icon path {
+			fill: dislikeBtnColor if customThumbs // if (customThumbs) {}
     }
+	
+	            &[aria-pressed="true"] yt-icon path {
+					fill: dislikeBtnColor i;
+				}
+	}
 
     /* Comments section */
     /* Like/Dislike */
-    #like-button,
+    #like-button {
+        & yt-button-shape button[aria-pressed="true"] yt-icon {
+			fill: likeBtnColor i;
+        }
     #dislike-button {
         & yt-button-shape button[aria-pressed="true"] yt-icon {
-            fill: var(--color1) i;
+			fill: dislikeBtnColor i;
         }
     }
 
