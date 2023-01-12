@@ -6,7 +6,7 @@
 @namespace      https://github.com/ImSwordKing
 @homepageURL    https://github.com/ImSwordKing/Watch9AdashimaaTube
 @supportURL     https://github.com/ImSwordKing/Watch9AdashimaaTube/issues
-@version        2.7.5.2
+@version        2.7.5.1
 @license        MIT
 @preprocessor   stylus
 
@@ -568,23 +568,23 @@ Support me: https://ko-fi.com/sapondanaisriwan
             display: none if shareBtn;
         }
 
-        
-	    /* Remove "Subscribed" from the notification bell */
+        /* Remove "Subscribed" from the notification bell */
 	    .yt-spec-button-shape-next--icon-leading-trailing.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next > .yt-spec-button-shape-next--button-text-content.cbox > .yt-core-attributed-string--white-space-no-wrap.yt-core-attributed-string {
-	    	display: none if NotifSub;
-	    	}
+		    display: none if NotifSub;
+		    }
 		
-      /* Fix Legacy Subscribe button (Thx BroDadi on the 7kttube discord) */
+        /* Fix Legacy Subscribe button (Thx BroDadi on the 7kttube discord) */
 	    tp-yt-paper-button.style-scope.ytd-subscribe-button-renderer {
-    		display: flex!important;
-	    	}
-    
+		    display: flex!important;
+		    }
+
 
 	    /* Remove "Ambient Mode" from settings */
 	    #ytp-id-18 > .ytp-panel > .ytp-panel-menu > div.ytp-menuitem:nth-of-type(1) {
 	    	display: none if AmbGone;
 		    }
-        
+
+
         /* 💬 Hide Comments Section */
         ytd-comments {
             display: none if commentSection;
@@ -752,14 +752,13 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
             &[aria-pressed="true"] yt-icon path {
                 fill: likeBtnColor i;
-                stroke: likeBtnColor i;
             }
         }
 
         /* 👎 Dislike Button Color */
         #segmented-dislike-button button {
             &[aria-pressed="false"] yt-icon path {
-                fill: dislikeBtnColor if customThumbs // if (customThumbs) {}            
+                stroke: dislikeBtnColor if customThumbs // if (customThumbs) {}            
             }
 
             &[aria-pressed="true"] yt-icon path {
@@ -909,7 +908,12 @@ Support me: https://ko-fi.com/sapondanaisriwan
     #meta-contents[hidden],
     #info-contents[hidden] {
         display: block i;
-    }    /* Revert back the old subscribed button */
+    }
+
+
+
+
+    /* Revert back the old subscribed button */
     yt-button-shape.ytd-subscribe-button-renderer[hidden] {
         display: block i;
     }
@@ -928,6 +932,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
         }
     }
+
 
     /* Removes second comment section, */
     #comment-teaser.ytd-watch-metadata {
@@ -956,7 +961,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         font-weight: 400 i;
         font-size: 18px i;
     }
-
+	
     /* Removes the bold letters on upload date and view count. */
     .yt-formatted-string[style-target="bold"] {
         font-weight: 400;
