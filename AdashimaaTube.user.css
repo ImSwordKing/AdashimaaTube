@@ -6,7 +6,7 @@
 @namespace      https://github.com/ImSwordKing
 @homepageURL    https://github.com/ImSwordKing/Watch9AdashimaaTube
 @supportURL     https://github.com/ImSwordKing/Watch9AdashimaaTube/issues
-@version        2.7.5.1
+@version        2.7.5.2
 @license        MIT
 @preprocessor   stylus
 
@@ -750,9 +750,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         if (likeDislike=="classic") {
             fill: var(--like-lime) i;
             stroke: var(--like-lime) i;
-        }
-
-            &[aria-pressed="true"] yt-icon path {
+			
 				if (likeDislike=="blueLD") {
 					fill: var(--color1) i;
 					stroke: var(--color1) i;
@@ -761,8 +759,19 @@ Support me: https://ko-fi.com/sapondanaisriwan
 					fill: var(--like-lime) i;
 					stroke: var(--like-lime) i;
 				}
-                fill: likeBtnColor i;
+        }
+
+            &[aria-pressed="true"] yt-icon path {
+			    fill: likeBtnColor i;
                 stroke: likeBtnColor i;
+				if (likeDislike=="blueLD") {
+					fill: var(--color1) i;
+					stroke: var(--color1) i;
+				}
+				if (likeDislike=="classic") {
+					fill: var(--like-lime) i;
+					stroke: var(--like-lime) i;
+				}
             }
         }
 	
@@ -777,7 +786,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
 				fill: var(--dislike-red) i if (likeDislike=="classic");
 				fill: var(--color1) i if (likeDislike=="blueLD");
             }
-			
+        }
+
         /* Comments section */
         /* 👍 Like Button Color */
         #like-button yt-button-shape button[aria-pressed="true"] yt-icon {
@@ -792,7 +802,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 			fill: var(--color1) i if (likeDislike=="blueLD");
 			fill: var(--dislike-red) i if (likeDislike=="classic");
         }
-		}
+	
     /* ⚙️ Avatar Roundness */
     #avatar {
         &.ytd-video-owner-renderer,
