@@ -6,7 +6,7 @@
 @namespace      https://github.com/ImSwordKing
 @homepageURL    https://github.com/ImSwordKing/Watch9AdashimaaTube
 @supportURL     https://github.com/ImSwordKing/Watch9AdashimaaTube/issues
-@version        2.7.5
+@version        2.7.5.1
 @license        MIT
 @preprocessor   stylus
 
@@ -765,7 +765,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 stroke: likeBtnColor i;
             }
         }
-
+	
         /* 👎 Dislike Button Color */
         #segmented-dislike-button button {
             &[aria-pressed="false"] yt-icon path {
@@ -777,8 +777,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 				fill: var(--dislike-red) i if (likeDislike=="classic");
 				fill: var(--color1) i if (likeDislike=="blueLD");
             }
-        }
-
+			
         /* Comments section */
         /* 👍 Like Button Color */
         #like-button yt-button-shape button[aria-pressed="true"] yt-icon {
@@ -793,7 +792,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 			fill: var(--color1) i if (likeDislike=="blueLD");
 			fill: var(--dislike-red) i if (likeDislike=="classic");
         }
-
+		}
     /* ⚙️ Avatar Roundness */
     #avatar {
         &.ytd-video-owner-renderer,
