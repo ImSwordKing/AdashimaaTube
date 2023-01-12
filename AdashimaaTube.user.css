@@ -6,7 +6,7 @@
 @namespace      https://github.com/ImSwordKing
 @homepageURL    https://github.com/ImSwordKing/Watch9AdashimaaTube
 @supportURL     https://github.com/ImSwordKing/Watch9AdashimaaTube/issues
-@version        2.7.5.2
+@version        2.7.5.3
 @license        MIT
 @preprocessor   stylus
 
@@ -741,37 +741,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
         #segmented-like-button button {
             &[aria-pressed="false"] yt-icon path {
                 stroke: likeBtnColor if customThumbs;
-            }
-		if (likeDislike=="blueLD") {
-            fill: var(--color1) i;
-            stroke: var(--color1) i;
-        }
-
-        if (likeDislike=="classic") {
-            fill: var(--like-lime) i;
-            stroke: var(--like-lime) i;
-			
-				if (likeDislike=="blueLD") {
-					fill: var(--color1) i;
-					stroke: var(--color1) i;
-				}
-				if (likeDislike=="classic") {
-					fill: var(--like-lime) i;
-					stroke: var(--like-lime) i;
-				}
-        }
 
             &[aria-pressed="true"] yt-icon path {
 			    fill: likeBtnColor i;
                 stroke: likeBtnColor i;
-				if (likeDislike=="blueLD") {
-					fill: var(--color1) i;
-					stroke: var(--color1) i;
-				}
-				if (likeDislike=="classic") {
-					fill: var(--like-lime) i;
-					stroke: var(--like-lime) i;
-				}
             }
         }
 	
