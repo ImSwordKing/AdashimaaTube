@@ -6,7 +6,7 @@
 @namespace      https://github.com/ImSwordKing
 @homepageURL    https://github.com/ImSwordKing/Watch9AdashimaaTube
 @supportURL     https://github.com/ImSwordKing/Watch9AdashimaaTube/issues
-@version        2.7.5.1
+@version        2.7.6
 @license        MIT
 @preprocessor   stylus
 
@@ -17,7 +17,7 @@
 @advanced checkbox centeredSearchResults    "🔎 Centered The Search Results" 0
 @advanced checkbox displayFullTitle         "🎦 Display Full Title For Videos" 0
 @advanced checkbox moreAnimation            "🎬 More Animations" 0
-@advanced checkbox restoreOldIcon           "🧓 Restore Old Icons (Beta)" 0
+@advanced checkbox restoreOldIcon           "🧓 Old Icons (Beta)" 0
 @advanced checkbox removeTaps               "❌ Remove Taps" 0
 @advanced checkbox subscriptionsGrid        "📄 Subsc In A Grid" 1
 @advanced checkbox watchedOverlay           "👀 Watched Overlay" 0
@@ -48,6 +48,8 @@
 
 @advanced select customAppearance           "⚒️ Custom Appearance" ["Enabled", "Disabled"]
 @advanced checkbox navigationBar            "  🌑 Dark Navigation Bar" 0
+@advanced checkbox oldBackground            "  🧓 Old Background" 0
+@advanced checkbox navigationBar            "  🌑 Dark Navigation Bar" 0
 @advanced checkbox searchBox                "  🌑 Dark Search Box" 0
 @advanced checkbox scroll_Bar               "  🌑 Dark Scroll Bar" 0
 
@@ -76,10 +78,14 @@ Support me: https://ko-fi.com/sapondanaisriwan
         --video-per-row-channelpage: videoPerRowCP;
         --profile-radius: customProfileRadius;
         --BorderRadius: customBorderRadius;
+
         --sub-red-btn: #CC0000;
         --sub-white--text-btn: #F2F2F2;
         --sub-black-bg-btn: #303030;
         --color1: #3ea6ff;
+        --dark-yt-spec-general-background-a: #181818;
+        --dark-yt-spec-brand-background-primary: rgba(33, 33, 33, 0.98);
+        --dark--yt-spec-10-percent-layer: rgba(255, 255, 255, 0.1);
     }
 
     /* ❌ Anti-Shorts (Beta) */
@@ -244,90 +250,103 @@ Support me: https://ko-fi.com/sapondanaisriwan
         ytd-watch-metadata > div#above-the-fold > #title {
             animation: slideInRight .7s;
         }
-    }
-
-
+    } // #f1f1f1
     /* ▶️ Restore Old Playlist */
-    ytd-browse[page-subtype=playlist][amsterdam] {
-        padding-top: 0 i;
+    ytd-playlist-sidebar-renderer {
+        background-color: var(--yt-spec-general-background-a) i;
     }
 
-    ytd-browse[page-subtype=playlist][amsterdam] ytd-playlist-header-renderer.ytd-browse {
-        margin-left: 0 i;
-        height: calc(100vh - var(--ytd-toolbar-height));
+    ytd-browse[page-subtype="playlist"][amsterdam] {
+        padding-top: 0;
     }
 
-    [page-subtype="playlist"] {
-
-        .immersive-header-container.ytd-playlist-header-renderer {
-            margin-bottom: 0 i;
-            border-radius: 0 i;
-        }
-
-        ytd-playlist-header-renderer {
-            width: 388px i;
-            color: var(--yt-spec-text-primary) i;
-        }
-
-        ytd-text-inline-expander.ytd-playlist-header-renderer,
-        yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string:visited,
-        #dropdown-trigger > div#input,
-        .metadata-stats.ytd-playlist-byline-renderer,
-        .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal,
-
-        /* Edit title */
-        .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--text {
-            color: var(--yt-spec-text-primary) i;
-        }
-
-        .metadata-text-wrapper.ytd-playlist-header-renderer {
-            --yt-endpoint-color: var(--yt-spec-text-primary) i;
-            --yt-endpoint-hover-color: var(--yt-spec-text-primary) i;
-        }
+    ytd-browse[page-subtype="playlist"][amsterdam] ytd-playlist-header-renderer.ytd-browse {
+        margin-left: 0;
+        height: calc(100vh - var(--ytd-toolbar-height) - 24px);
     }
 
-    html[dark] [page-subtype="playlist"] {
-        div.immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer > div {
-            background: var(--yt-spec-general-background-a) i; // #181818
-        }
+    .immersive-header-gradient,
+    .immersive-header-background-wrapper.ytd-playlist-header-renderer {
+        background: none i;
     }
 
-    html:not([dark]) [page-subtype="playlist"] {
-        #contents > ytd-playlist-video-list-renderer {
-            background: var(--yt-spec-white-3) i; // #f1f1f1
-        }
-
-        div.immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer > div {
-            background: var(--yt-spec-white-2) i; // #f9f9f9
-        }
-
-        /* Shuffle button */
-        .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal {
-            background: var(--yt-spec-base-background);
-            &:hover {
-                background: var(--yt-spec-static-overlay-filled-hover); // #f9f9f9
-            }
-        }
-
-        /* Change color of input text */
-        iron-input.tp-yt-paper-input > input.tp-yt-paper-input,
-        textarea.tp-yt-iron-autogrow-textarea {
-            color: var(--yt-spec-text-primary) i;
-        }
-
-        /* Edit description (placeholder) */
-        #labelAndInputContainer.tp-yt-paper-input-container > label,
-        #labelAndInputContainer.tp-yt-paper-input-container > .paper-input-label {
-            color: var(--yt-spec-text-secondary);
-        }
-
-        /* Change border bottom color to black */
-        .unfocused-line.tp-yt-paper-input-container,
-        .focused-line.tp-yt-paper-input-container {
-            border-bottom-color: var(--yt-spec-text-primary) i;
-        }
+    /* Remove border around the playlists */
+    .immersive-header-container.ytd-playlist-header-renderer {
+        border-radius: 0;
     }
 
+    ytd-browse[darker-dark-theme][page-subtype="playlist"],
+    ytd-browse[darker-dark-theme][page-subtype="show"],
+    ytd-browse[darker-dark-theme][page-subtype="playlist"] ytd-two-column-browse-results-renderer.ytd-browse,
+    ytd-browse[darker-dark-theme][page-subtype="show"] ytd-two-column-browse-results-renderer.ytd-browse,
+    ytd-browse[darker-dark-theme][page-subtype="playlist"][background-refresh],
+    ytd-browse[darker-dark-theme][page-subtype="show"][background-refresh] {
+        background: var(--yt-spec-general-background-b) i;
+    } //     ytd-browse[page-subtype=playlist][amsterdam] {
+    //         padding-top: 0 i;
+    //     }
+    //     ytd-browse[page-subtype=playlist][amsterdam] ytd-playlist-header-renderer.ytd-browse {
+    //         margin-left: 0 i;
+    //         height: calc(100vh - var(--ytd-toolbar-height));
+    //     }
+    //     [page-subtype="playlist"] {
+    //         .immersive-header-container.ytd-playlist-header-renderer {
+    //             margin-bottom: 0 i;
+    //             border-radius: 0 i;
+    //         }
+    //         ytd-playlist-header-renderer {
+    //             width: 388px i;
+    //             color: var(--yt-spec-text-primary) i;
+    //         }
+    //         ytd-text-inline-expander.ytd-playlist-header-renderer,
+    //         yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string:visited,
+    //         #dropdown-trigger > div#input,
+    //         .metadata-stats.ytd-playlist-byline-renderer,
+    //         .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal,
+    //         /* Edit title */
+    //         .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--text {
+    //             color: var(--yt-spec-text-primary) i;
+    //         }
+    //         .metadata-text-wrapper.ytd-playlist-header-renderer {
+    //             --yt-endpoint-color: var(--yt-spec-text-primary) i;
+    //             --yt-endpoint-hover-color: var(--yt-spec-text-primary) i;
+    //         }
+    //     }
+    //     html[dark] [page-subtype="playlist"] {
+    //         div.immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer > div {
+    //             background: var(--yt-spec-general-background-a) i; // #181818
+    //         }
+    //     }
+    //     html:not([dark]) [page-subtype="playlist"] {
+    //         #contents > ytd-playlist-video-list-renderer {
+    //             background: var(--yt-spec-white-3) i; // #f1f1f1
+    //         }
+    //         div.immersive-header-background-wrapper.style-scope.ytd-playlist-header-renderer > div {
+    //             background: var(--yt-spec-white-2) i; // #f9f9f9
+    //         }
+    //         /* Shuffle button */
+    //         .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal {
+    //             background: var(--yt-spec-base-background);
+    //             &:hover {
+    //                 background: var(--yt-spec-static-overlay-filled-hover); // #f9f9f9
+    //             }
+    //         }
+    //         /* Change color of input text */
+    //         iron-input.tp-yt-paper-input > input.tp-yt-paper-input,
+    //         textarea.tp-yt-iron-autogrow-textarea {
+    //             color: var(--yt-spec-text-primary) i;
+    //         }
+    //         /* Edit description (placeholder) */
+    //         #labelAndInputContainer.tp-yt-paper-input-container > label,
+    //         #labelAndInputContainer.tp-yt-paper-input-container > .paper-input-label {
+    //             color: var(--yt-spec-text-secondary);
+    //         }
+    //         /* Change border bottom color to black */
+    //         .unfocused-line.tp-yt-paper-input-container,
+    //         .focused-line.tp-yt-paper-input-container {
+    //             border-bottom-color: var(--yt-spec-text-primary) i;
+    //         }
+    //     }
     /* ❌ Remove Taps */
     #header ytd-feed-filter-chip-bar-renderer,
     ytd-watch-next-secondary-results-renderer yt-related-chip-cloud-renderer {
@@ -457,7 +476,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
         [page-subtype="home"] {
             ytd-rich-grid-renderer {
                 --ytd-rich-grid-items-per-row: var(--video-per-row-homepage) i;
-                margin: 0 4px 24px 4px;
                 #contents {
                     max-width: calc(100% - 2 * 3vw);
 
@@ -558,6 +576,14 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
         }
 
+        html[dark] ytd-segmented-like-dislike-button-renderer #segmented-like-button button[aria-pressed="true"] yt-icon {
+            filter: invert() if (likeDislike=="none");
+        }
+
+        html:not([dark]) ytd-segmented-like-dislike-button-renderer #segmented-like-button button[aria-pressed="true"] yt-icon {
+            filter: invert(0) if (likeDislike=="none");
+        }
+    
         /*  ⬇️ Hide Download Button */
         ytd-download-button-renderer {
             display: none if downloadBtn;
@@ -638,6 +664,76 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     /* "⚒️ Custom Appearance" */
     if (customAppearance=="Enabled") {
+
+        if (oldBackground) {
+            ytd-app[darker-dark-theme] {
+                background: var(--yt-spec-general-background-a) i;
+            }
+
+            ytd-browse[page-subtype="channels"] {
+                background: var(--yt-spec-general-background-b) i;
+            }
+
+            [page-subtype="home"] #chips-wrapper.ytd-feed-filter-chip-bar-renderer {
+                background-color: var(--yt-spec-brand-background-primary) i;
+                border-top: 1px solid var(--yt-spec-10-percent-layer) i;
+                border-bottom: 1px solid var(--yt-spec-10-percent-layer) i;
+            }
+
+            ytd-c4-tabbed-header-renderer[darker-dark-theme] {
+                --yt-lightsource-section1-color: var(--yt-spec-general-background-a) i;
+            }
+
+            /* Tap arrow */
+            ytd-feed-filter-chip-bar-renderer[is-dark-theme] #left-arrow.ytd-feed-filter-chip-bar-renderer::after {
+                background: linear-gradient(to right, var(--yt-spec-brand-background-primary) 20%, rgba(33, 33, 33, 0) 80%) i;
+            }
+
+            ytd-feed-filter-chip-bar-renderer[darker-dark-theme][is-dark-theme] #right-arrow.ytd-feed-filter-chip-bar-renderer::before {
+                background: linear-gradient(to left, var(--yt-spec-brand-background-primary) 20%, rgba(33, 33, 33, 0) 80%) i;
+            }
+
+            /* Tap arrow */
+            ytd-feed-filter-chip-bar-renderer[darker-dark-theme] #left-arrow-button.ytd-feed-filter-chip-bar-renderer,
+            ytd-feed-filter-chip-bar-renderer[darker-dark-theme] #right-arrow-button.ytd-feed-filter-chip-bar-renderer {
+                background-color: var(--yt-spec-brand-background-primary) i;
+            }
+
+            /* Right Tap arrow on the watch page */
+            yt-chip-cloud-renderer[is-dark-theme] #right-arrow.yt-chip-cloud-renderer::before {
+                background: linear-gradient(to left, var(--ytd-chip-cloud-background, var(--yt-spec-general-background-a)) 10%, rgba(24, 24, 24, 0) 90%) i;
+            }
+
+            yt-chip-cloud-renderer[darker-dark-theme] #left-arrow-button.yt-chip-cloud-renderer,
+            yt-chip-cloud-renderer[darker-dark-theme] #right-arrow-button.yt-chip-cloud-renderer {
+                background: var(--ytd-chip-cloud-background, var(--yt-spec-general-background-a)) i;
+            }
+
+            /* Left Tap arrow on the watch page */
+            yt-chip-cloud-renderer[darker-dark-theme][is-dark-theme] #left-arrow.yt-chip-cloud-renderer::after {
+                background: linear-gradient(to right, var(--ytd-chip-cloud-background, var(--yt-spec-general-background-a)) 10%, rgba(24, 24, 24, 0) 90%) i;
+            }
+
+            yt-chip-cloud-renderer[darker-dark-theme] #left-arrow.yt-chip-cloud-renderer::after {
+                background: linear-gradient(to right, var(--ytd-chip-cloud-background, var(--yt-spec-general-background-a)) 10%, rgba(249, 249, 249, 0) 90%) i;
+            }
+
+            yt-chip-cloud-renderer[darker-dark-theme] #right-arrow.yt-chip-cloud-renderer::before {
+                background: linear-gradient(to left, var(--ytd-chip-cloud-background, var(--yt-spec-general-background-a)) 10%, rgba(249, 249, 249, 0) 90%) i;
+            }
+
+            /* light theme tap on the channel page*/
+            ytd-feed-filter-chip-bar-renderer[darker-dark-theme][component-style="FEED_FILTER_CHIP_BAR_STYLE_TYPE_HASHTAG_LANDING_PAGE"] #chips-wrapper.ytd-feed-filter-chip-bar-renderer,
+            ytd-feed-filter-chip-bar-renderer[darker-dark-theme][component-style="FEED_FILTER_CHIP_BAR_STYLE_TYPE_CHANNEL_PAGE_GRID"] #chips-wrapper.ytd-feed-filter-chip-bar-renderer {
+                background-color: var(--yt-spec-general-background-b) i;
+            }
+
+            yt-chip-cloud-chip-renderer[chip-style="STYLE_DEFAULT"],
+            yt-chip-cloud-chip-renderer[chip-style="STYLE_HOME_FILTER"],
+            yt-chip-cloud-chip-renderer[chip-style="STYLE_REFRESH_TO_NOVEL_CHIP"] {
+                border: 1px solid var(--yt-spec-10-percent-layer) i;
+            }
+        }
 
         /* 🌑 Dark Navigation Bar */
         if (navigationBar) {
@@ -912,7 +1008,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
 
 
-
     /* Revert back the old subscribed button */
     yt-button-shape.ytd-subscribe-button-renderer[hidden] {
         display: block i;
@@ -932,6 +1027,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
             }
         }
     }
+
+
 
 
     /* Removes second comment section, */
@@ -2024,7 +2121,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
         ytd-segmented-like-dislike-button-renderer #segmented-like-button button[aria-pressed="true"] yt-icon {
             filter: invert(51%) sepia(96%) saturate(1268%) hue-rotate(185deg) brightness(101%) contrast(103%);
-        }
+		}
 
         #menu-container ytd-button-renderer yt-button-shape button span,
         #flexible-item-buttons yt-button-shape button span,
