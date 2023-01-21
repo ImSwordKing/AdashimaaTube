@@ -7,7 +7,7 @@ Fork of AdashimaaTube made to work with [Old Icons Restorer](https://greasyfork.
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 
- <img src="https://userstyles.world/preview/6944/3.webp" width="100%"/>
+ <img src="https://i.imgur.com/pZphNW9.jpeg" width="100%"/>
 </div>
 
 ## ✅ Recommended Scripts and Extensions to use with this fork

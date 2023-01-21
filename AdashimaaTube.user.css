@@ -6,7 +6,7 @@
 @namespace      https://github.com/ImSwordKing
 @homepageURL    https://github.com/ImSwordKing/Watch9AdashimaaTube
 @supportURL     https://github.com/ImSwordKing/Watch9AdashimaaTube/issues
-@version        2.7.8
+@version        2.7.9
 @license        MIT
 @preprocessor   stylus
 
@@ -50,6 +50,7 @@
 @advanced checkbox navigationBar            "  🌑 Dark Navigation Bar" 0
 @advanced checkbox oldBackground            "  🧓 Old Background" 0
 @advanced checkbox navigationBar            "  🌑 Dark Navigation Bar" 0
+@advanced checkbox oldPlaylists             "  🧓 Old Playlists" 1
 @advanced checkbox searchBox                "  🌑 Dark Search Box" 0
 @advanced checkbox scroll_Bar               "  🌑 Dark Scroll Bar" 0
 
@@ -85,7 +86,18 @@ Support me: https://ko-fi.com/sapondanaisriwan
         --dark-yt-spec-brand-background-primary: rgba(33, 33, 33, 0.98);
         --dark--yt-spec-10-percent-layer: rgba(255, 255, 255, 0.1);
     }
-    
+
+    test() {
+        ytd-rich-grid-row,
+        ytd-rich-grid-row #contents {
+            display: contents;
+        }
+
+        #contents > ytd-rich-item-renderer {
+            margin: 0 4px 24px 4px i;
+        }
+    }
+
     /* ❌ Anti-Shorts (Beta) */
     /* I can't find the way to remove all shorts using css alone */
     if (antiShorts) {
@@ -131,10 +143,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             ytd-rich-grid-renderer {
                 /* Set to be treated as if they were the children of their parent element */
                 #contents {
-                    ytd-rich-grid-row,
-                    ytd-rich-grid-row #contents {
-                        display: contents;
-                    }
+                    test();
                 }
             }
         }
@@ -372,6 +381,9 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 width: var(--ytd-grid-1-columns-width) i;
             }
 
+            /* Remove bell icon */
+            #notification-preference-button,
+
             /* Remove videos count*/
             #metadata.ytd-channel-renderer > span:nth-last-child(-n + 2) {
                 display: none;
@@ -391,8 +403,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
             /* Channel profile */
             yt-img-shadow.ytd-channel-renderer {
-                width: 103px;
-                height: 103px;
+                width: var(--ytd-grid-base);
+                height: var(--ytd-grid-base);
                 /* Centered the channel profile */
                 display: flex;
                 flex-direction: column;
@@ -425,11 +437,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
             #grid-container.ytd-expanded-shelf-contents-renderer > *.ytd-expanded-shelf-contents-renderer:not(:last-child) {
                 margin-bottom: 24px;
             }
-
-            /* Remove bell icon */
-            #notification-preference-button {
-                display: none;
-            }
         }
     }
 
@@ -448,23 +455,21 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 height: 100%;
             }
 
-            > div#progress {
-                &::before {
-                    color: var(--yt-spec-static-brand-white);
-                    content: "watched";
-                    text-transform: uppercase;
-                    font-family: "Roboto", sans-serif;
-                    font-size: 1.2rem i;
-                    font-weight: inherit; // Top left
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    background-color: var(--yt-spec-static-overlay-background-heavy);
-                    letter-spacing: var(--yt-badge-letter-spacing, 0.5px);
-                    margin: 4px;
-                    padding: 3px 4px;
-                    border-radius: 4px;
-                }
+            > div#progress::before {
+                color: var(--yt-spec-static-brand-white);
+                content: "watched";
+                text-transform: uppercase;
+                font-family: "Roboto", sans-serif;
+                font-size: 1.2rem i;
+                font-weight: inherit; // Top left
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: var(--yt-spec-static-overlay-background-heavy);
+                letter-spacing: var(--yt-badge-letter-spacing, 0.5px);
+                margin: 4px;
+                padding: 3px 4px;
+                border-radius: 4px;
             }
         }
     }
@@ -477,15 +482,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 --ytd-rich-grid-items-per-row: var(--video-per-row-homepage) i;
                 #contents {
                     max-width: calc(100% - 2 * 3vw);
-                    /* Set to be treated as if they were the children of their parent element */
-                    ytd-rich-grid-row,
-                    ytd-rich-grid-row #contents {
-                        display: contents;
-                    }
-
-                    #contents > ytd-rich-item-renderer {
-                        margin: 0 4px 24px 4px i;
-                    }
+                    test();
                 }
             }
         }
@@ -505,12 +502,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
 
         [page-subtype="home"] {
-            #contents > ytd-rich-item-renderer {
-                margin: 0 4px 24px 4px;
-                /* Remove the blank video thumbnail is an advertisement video that was deleted by an AdBlock extension, such as uBlock Origin, AdBlock, Adblock Plus, and others */
-                &:has(#content > ytd-ad-slot-renderer) {
-                    display: none;
-                }
+
+            /* Remove the blank video thumbnail is an advertisement video that was deleted by an AdBlock extension, such as uBlock Origin, AdBlock, Adblock Plus, and others */
+            #contents > ytd-rich-item-renderer:has(#content > ytd-ad-slot-renderer) {
+                display: none;
             }
 
             #contents.ytd-rich-grid-renderer {
@@ -540,14 +535,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 --ytd-rich-grid-items-per-row: var(--video-per-row-channelpage) i;
                 /* Set to be treated as if they were the children of their parent element */
                 #contents {
-                    ytd-rich-grid-row,
-                    ytd-rich-grid-row #contents {
-                        display: contents;
-                    }
-
-                    #contents > ytd-rich-item-renderer {
-                        margin: 0 4px 24px 4px i;
-                    }
+                    test();
                 }
             }
         }
@@ -570,12 +558,16 @@ Support me: https://ko-fi.com/sapondanaisriwan
 				filter: invert() if (customLikeDislike=="Disabled");
             }
 
-            html[dark] ytd-segmented-like-dislike-button-renderer #segmented-like-button button[aria-pressed="true"] yt-icon {
-                filter: invert() if (likeDislike=="none");
+            html[dark] ytd-segmented-like-dislike-button-renderer #segmented-like-button button {
+                &[aria-pressed="true"] yt-icon {
+                    filter: invert() if (likeDislike=="none");
+                }
             }
 
-            html:not([dark]) ytd-segmented-like-dislike-button-renderer #segmented-like-button button[aria-pressed="true"] yt-icon {
-                filter: invert(0) if (likeDislike=="none");
+            html:not([dark]) ytd-segmented-like-dislike-button-renderer #segmented-like-button button {
+                &[aria-pressed="true"] yt-icon {
+                    filter: invert(0) if (likeDislike=="none");
+                }
             }
         }
 
@@ -1049,7 +1041,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
         }
     }
 
-    /* RIP other browser that doesn't support :has */    
+    /* RIP other browser that doesn't support :has */
     /* Remove Unsubscribe button from bell icon flyout menu */
     ytd-menu-service-item-renderer[use-icons]:has(tp-yt-paper-item[style-target="host"] > yt-icon.ytd-menu-service-item-renderer > svg > g path[d^="M13.72\,11.93C15.58\,11.59\,17\,9.96\,17\,8c0-2.21-1.79-4-4-4S9\,5.79\,9\,8c0\,1.96\,1.42\,3.59\,3.28\,3.93"]) {
         display: none;
@@ -1256,9 +1248,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #container.ytd-searchbox,
     ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #container.ytd-searchbox,
     ytd-searchbox[desktop-searchbar-style=rounded_corner_borders_light_btn] #search-icon-legacy.ytd-searchbox,
-    ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #search-icon-legacy.ytd-searchbox {
-        border-radius: var(--BorderRadius) i;
-    }
+    ytd-searchbox[desktop-searchbar-style=rounded_corner_autofocus] #search-icon-legacy.ytd-searchbox,
 
     /* No rounded thumbnails */
     ytd-thumbnail[size=medium] a.ytd-thumbnail,
@@ -1289,186 +1279,122 @@ Support me: https://ko-fi.com/sapondanaisriwan
     .ytp-autonav-endscreen-upnext-thumbnail.rounded-thumbnail,
     ytd-video-preview[rounded-container] #video-preview-container.ytd-video-preview,
     ytd-video-preview[rounded-container] #player-container.ytd-video-preview,
-    ytd-video-preview[rounded-container] #inline-preview-player.ytd-video-preview {
-        border-radius: var(--BorderRadius) i;
-    }
+    ytd-video-preview[rounded-container] #inline-preview-player.ytd-video-preview,
 
     /* Removes border while hover the video */
-    ytd-video-preview:not([has-endorsement]) #inline-preview-player.ytp-rounded-inline-preview .html5-main-video {
-        border-radius: var(--BorderRadius) i;
-    }
+    ytd-video-preview:not([has-endorsement]) #inline-preview-player.ytp-rounded-inline-preview .html5-main-video,
 
     /* Removes border from miniplayer */
     ytd-miniplayer[rounded-container] #player-container.ytd-miniplayer,
     ytd-miniplayer[rounded-container] #video-container.ytd-miniplayer .video.ytd-miniplayer,
     ytd-miniplayer[rounded-container] #card.ytd-miniplayer,
-    ytd-miniplayer[rounded-container] {
-        border-radius: var(--BorderRadius) i;
-    } // #show-hide-button > ytd-toggle-button-renderer > yt-button-shape > button > yt-touch-feedback-shape > div > div.yt-spec-touch-feedback-shape__fill
+    ytd-miniplayer[rounded-container], // #show-hide-button > ytd-toggle-button-renderer > yt-button-shape > button > yt-touch-feedback-shape > div > div.yt-spec-touch-feedback-shape__fill
     /* Removes border around Live chat */
     ytd-live-chat-frame[rounded-container],
     ytd-live-chat-frame[rounded-container] #show-hide-button.ytd-live-chat-frame ytd-toggle-button-renderer.ytd-live-chat-frame,
     yt-dropdown-menu[modern-dialogs] #menu.yt-dropdown-menu,
     .dropdown-content.tp-yt-paper-menu-button,
-    #chatframe {
-        border-radius: var(--BorderRadius) i;
-    }
+    #chatframe,
 
     /* Live */
-    .ytp-offline-slate-bar.ytp-rounded-offline-slate {
-        border-radius: var(--BorderRadius) i;
-    }
+    .ytp-offline-slate-bar.ytp-rounded-offline-slate,
 
     /* Removes border around pop up */
     ytd-menu-popup-renderer[sheets-refresh],
-    tp-yt-paper-dialog[modern] {
-        border-radius: var(--BorderRadius) i;
-    }
+    tp-yt-paper-dialog[modern],
 
     ytd-guide-entry-renderer[guide-refresh],
     ytd-guide-entry-renderer[guide-refresh] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:hover,
     ytd-guide-entry-renderer[guide-refresh] #endpoint.yt-simple-endpoint.ytd-guide-entry-renderer:focus,
-    ytd-guide-entry-renderer[guide-refresh] yt-interaction.ytd-guide-entry-renderer {
-        border-radius: var(--BorderRadius) i;
-    }
+    ytd-guide-entry-renderer[guide-refresh] yt-interaction.ytd-guide-entry-renderer,
 
     .ytp-sb-subscribe.ytp-sb-rounded,
-    .ytp-sb-unsubscribe.ytp-sb-rounded {
-        border-radius: var(--BorderRadius);
-    }
+    .ytp-sb-unsubscribe.ytp-sb-rounded,
 
-    .iv-card.ytp-rounded-info {
-        border-radius: var(--BorderRadius) i;
-    }
+    .iv-card.ytp-rounded-info,
 
     /* Gaming */
     ytd-game-details-renderer[rounded] yt-img-shadow.ytd-game-details-renderer ytd-video-preview[rounded-container] #video-preview-container.ytd-video-preview,
     ytd-video-preview[rounded-container] #player-container.ytd-video-preview,
     ytd-video-preview[rounded-container] #inline-preview-player.ytd-video-preview,
-    ytd-game-details-renderer[rounded] yt-img-shadow.ytd-game-details-renderer {
-        border-radius: var(--BorderRadius) i;
-    }
+    ytd-game-details-renderer[rounded] yt-img-shadow.ytd-game-details-renderer,
 
     /* Removes border Community post */
     ytd-backstage-post-thread-renderer[rounded-container],
     yt-img-shadow.ytd-backstage-image-renderer,
     ytd-backstage-image-renderer[rounded] #image-container.ytd-backstage-image-renderer,
-    ytd-backstage-post-dialog-renderer[is-creation-dialog][rounded-container] {
-        border-radius: var(--BorderRadius) i;
-    }
+    ytd-backstage-post-dialog-renderer[is-creation-dialog][rounded-container],
 
     /* shots */
-    ytd-reel-player-overlay-renderer #overlay.ytd-reel-player-overlay-renderer {
-        border-radius: var(--BorderRadius) i;
-    }
+    ytd-reel-player-overlay-renderer #overlay.ytd-reel-player-overlay-renderer,
 
     /* remove unloaded video thumbnails */
     #home-page-skeleton .rich-thumbnail.rounded-thumbs,
-    #home-container-skeleton .rich-thumbnail.rounded-thumbs:before {
-        border-radius: var(--BorderRadius) i;
-    }
+    #home-container-skeleton .rich-thumbnail.rounded-thumbs:before,
 
     /* Charpters */
-    ytd-engagement-panel-section-list-renderer[modern-panels] {
-        border-radius: var(--BorderRadius) i;
-    }
+    ytd-engagement-panel-section-list-renderer[modern-panels],
 
     /* the end of the video */
-    .ytp-autonav-endscreen-upnext-button.ytp-autonav-endscreen-upnext-button-rounded {
-        border-radius: var(--BorderRadius) i;
-    }
+    .ytp-autonav-endscreen-upnext-button.ytp-autonav-endscreen-upnext-button-rounded,
 
-    a.ytd-search-refinement-card-renderer {
-        border-radius: var(--BorderRadius) i;
-    }
-
-    ytd-expandable-metadata-renderer[round-container]:not([is-expanded]) {
-        --yt-img-border-radius: var(--BorderRadius);
-    }
+    a.ytd-search-refinement-card-renderer,
 
     /* hover playlist */
-    ytd-playlist-video-renderer[amsterdam] {
-        border-radius: var(--BorderRadius) i;
-    }
+    ytd-playlist-video-renderer[amsterdam],
 
     /* Home posts section */
-    ytd-post-renderer[rounded-container] {
-        border-radius: var(--BorderRadius) i;
-    }
+    ytd-post-renderer[rounded-container],
 
     /* Setting gear icon */
     .ytp-settings-menu.ytp-rounded-menu,
-    .ytp-screen-mode-menu.ytp-rounded-menu {
-        border-radius: var(--BorderRadius) i;
-    }
+    .ytp-screen-mode-menu.ytp-rounded-menu,
 
-    .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start {
-        border-radius: var(--BorderRadius) i;
-        position: relative;
-    }
-
+    .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-start,
     .player-container.ytd-reel-video-renderer,
     .ytp-ce-video.ytp-ce-medium-round,
     .ytp-ce-playlist.ytp-ce-medium-round,
     .ytp-ce-medium-round .ytp-ce-expanding-overlay-background,
     ytd-compact-video-renderer[music-metadata-video-lockup],
-    ytd-rich-metadata-renderer[rounded] {
-        border-radius: var(--BorderRadius) i;
-    }
+    ytd-rich-metadata-renderer[rounded],
 
     /* Removes border around search box */
-    .sbdd_b {
-        border-radius: var(--BorderRadius) i;
-    }
+    .sbdd_b,
 
-    ytd-expandable-metadata-renderer[round-container] {
-        border-radius: var(--BorderRadius) i;
-    }
+    ytd-expandable-metadata-renderer[round-container],
 
     /* Timestamp */
-    ytd-macro-markers-list-item-renderer[modern][rounded][layout=MACRO_MARKERS_LIST_ITEM_RENDERER_LAYOUT_VERTICAL] {
-        border-radius: var(--BorderRadius) i;
-    }
+    ytd-macro-markers-list-item-renderer[modern][rounded][layout=MACRO_MARKERS_LIST_ITEM_RENDERER_LAYOUT_VERTICAL],
 
     /* Not interested */
     ytd-rich-grid-media[rounded-container] #dismissed.ytd-rich-grid-media,
-    #dismissed.ytd-compact-video-renderer {
-        border-radius: var(--BorderRadius) i;
-    }
+    #dismissed.ytd-compact-video-renderer,
 
     /* Inform news such as covid19 */
     ytd-clarification-renderer[round-container],
     ytd-info-panel-container-renderer[rounded-container][has-title] .header.ytd-info-panel-container-renderer,
-    ytd-medical-panel-content-renderer[rounded-container] {
-        border-radius: var(--BorderRadius) i;
-    }
+    ytd-medical-panel-content-renderer[rounded-container],
 
     .ytp-sb-subscribe.ytp-sb-rounded,
-    .ytp-sb-unsubscribe.ytp-sb-rounded {
-        border-radius: var(--BorderRadius) i;
-    }
+    .ytp-sb-unsubscribe.ytp-sb-rounded,
 
-    ytd-universal-watch-card-renderer[rounded] #header.ytd-universal-watch-card-renderer {
-        border-radius: var(--BorderRadius) i;
-    }
+    ytd-universal-watch-card-renderer[rounded] #header.ytd-universal-watch-card-renderer,
 
     /* video preview on music section */
-    ytd-carousel-item-renderer[rounded] #pagination-thumbnails.ytd-carousel-item-renderer button.ytd-carousel-item-renderer yt-img-shadow.ytd-carousel-item-renderer {
-        border-radius: var(--BorderRadius) i;
-    }
+    ytd-carousel-item-renderer[rounded] #pagination-thumbnails.ytd-carousel-item-renderer button.ytd-carousel-item-renderer yt-img-shadow.ytd-carousel-item-renderer,
 
     /* video game thumbnail */
-    yt-channel-thumbnail-with-link-renderer[style_=CHANNEL_THUMBNAIL_STYLE_BOXART_ROUNDED] #avatar.yt-channel-thumbnail-with-link-renderer {
-        border-radius: var(--BorderRadius) i;
-    }
+    yt-channel-thumbnail-with-link-renderer[style_=CHANNEL_THUMBNAIL_STYLE_BOXART_ROUNDED] #avatar.yt-channel-thumbnail-with-link-renderer,
 
     /* Collapse Navbar */
-    ytd-mini-guide-entry-renderer[guide-refresh] {
-        border-radius: var(--BorderRadius) i;
-    }
+    ytd-mini-guide-entry-renderer[guide-refresh],
 
     ytd-universal-watch-card-renderer[rounded] #hero.ytd-universal-watch-card-renderer {
         border-radius: var(--BorderRadius) i;
+    }
+
+    ytd-expandable-metadata-renderer[round-container]:not([is-expanded]) {
+        --yt-img-border-radius: var(--BorderRadius);
     }
 
     /* Album (https://www.youtube.com/results?search_query=ddto) */
@@ -2133,14 +2059,19 @@ Support me: https://ko-fi.com/sapondanaisriwan
         ytd-section-list-renderer.ytd-two-column-browse-results-renderer[page-subtype="channels"] #contents.ytd-section-list-renderer {
             display: flex;
             flex-wrap: wrap;
+            ytd-item-section-renderer {
+                width: 246px i;
+                margin: 0 4px 24px 4px i;
+            }
+
             ytd-item-section-renderer.ytd-section-list-renderer > #contents.ytd-item-section-renderer {
-                // margin: 0 4px 24px 4px i;
                 /* Playlist */
                 & > ytd-playlist-renderer.ytd-item-section-renderer {
                     flex-direction: column;
                     > #content.ytd-playlist-renderer {
                         overflow: visible;
                         width: 246px;
+
                         /* Remove playlist description */
                         > #list.ytd-playlist-renderer {
                             display: none;
@@ -2178,7 +2109,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
                     display: flex;
                     flex-direction: column;
                     .text-wrapper.ytd-video-renderer {
-                        width: 246px;
+                        width: 246px i;
                         /* Remove description */
                         > #description-text.ytd-video-renderer {
                             display: none;
