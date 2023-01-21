@@ -6,7 +6,7 @@
 @namespace      https://github.com/ImSwordKing
 @homepageURL    https://github.com/ImSwordKing/Watch9AdashimaaTube
 @supportURL     https://github.com/ImSwordKing/Watch9AdashimaaTube/issues
-@version        2.7.9
+@version        2.7.9.1
 @license        MIT
 @preprocessor   stylus
 
@@ -52,6 +52,8 @@
 @advanced checkbox navigationBar            "  🌑 Dark Navigation Bar" 0
 @advanced checkbox oldPlaylists             "  🧓 Old Playlists" 1
 @advanced checkbox searchBox                "  🌑 Dark Search Box" 0
+@advanced checkbox NosearchIco                "  🔎 Remove Search Icon in search" 1
+@advanced checkbox SmallSearchBox5               "  🔎 Compact Search" 0
 @advanced checkbox scroll_Bar               "  🌑 Dark Scroll Bar" 0
 
 @advanced select customLikeDislike          "⚒️ Custom Colors For Like/Dislike (Won't play nice with Old Icons)" ["Enabled", "Disabled"]
@@ -754,7 +756,76 @@ Support me: https://ko-fi.com/sapondanaisriwan
                 }
             }
         }
+		
+        /* 🔎 Compact Search Box */
+        /* Youtube revert search credit to Magma_Craft. He is awesome */
+        if (SmallSearchBox5) {
+			
+			ytd-searchbox.style-scope.ytd-masthead {
+				height: 32px !important;
+				}
 
+			form#search-form.style-scope.ytd-searchbox {
+				height: 32px !important;
+				}
+
+			button#search-icon-legacy.style-scope.ytd-searchbox {
+				width: 65px !important;
+				height: 32px !important;
+				}
+
+			button#search-icon-legacy.ytd-searchbox yt-icon.ytd-searchbox {
+				max-width: 20px !important;
+				max-height: 20px !important;
+				opacity: 0.6 !important;
+				}
+
+			#voice-search-button.ytd-masthead {
+				width: 36px !important;
+				height: 36px !important;
+				}
+
+        }
+		
+        /* 🔎 Remove Search Box Icon */
+        if (NosearchIco) {
+			
+			#container.ytd-searchbox {
+				margin-left: 0px !important;
+				}
+
+			#container.ytd-searchbox > [slot=search-input] input {
+				box-sizing: border-box !important;
+				padding: 1px 6px !important;
+				margin: 0 !important;
+				}
+
+			ytd-searchbox[has-focus] #search-icon.ytd-searchbox {
+				display: none !important;
+				}
+
+			ytd-searchbox[has-focus][desktop-searchbar-style=rounded_corner_dark_btn] #search-icon.ytd-searchbox, ytd-searchbox[has-focus][desktop-searchbar-style=rounded_corner_light_btn] #search-icon.ytd-searchbox {
+				display: none !important;
+				}
+
+			ytd-searchbox[has-focus] #container.ytd-searchbox {
+				padding: 2px 6px 2px 6px !important;
+				margin: 0 !important;
+				}
+
+			#search[has-focus] #search-input {
+				margin-left: 0px !important;
+				}
+
+			div.sbqs_c::before {
+				display: none !important;
+				}
+
+			span.sbpqs_a::before {
+				display: none !important;
+				}
+        }
+		
         /* 🌑 Dark Search Box */
         /* Dark search box credit to Mikey(Vednoc). He is awesome */
         if (searchBox) {
