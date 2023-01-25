@@ -1,12 +1,13 @@
 /* ==UserStyle==
 @name           `Watch9AdashimaaTube
 @author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan) [Adashima#4066]
+
 @author         ImSwordKing (https://github.com/ImSwordKing)
 @description    Please report bugs via github issues
 @namespace      https://github.com/ImSwordKing
 @homepageURL    https://github.com/ImSwordKing/Watch9AdashimaaTube
 @supportURL     https://github.com/ImSwordKing/Watch9AdashimaaTube/issues
-@version        2.7.9.1
+@version        2.8.0
 @license        MIT
 @preprocessor   stylus
 
@@ -87,6 +88,22 @@ Support me: https://ko-fi.com/sapondanaisriwan
         --dark-yt-spec-general-background-a: #181818;
         --dark-yt-spec-brand-background-primary: rgba(33, 33, 33, 0.98);
         --dark--yt-spec-10-percent-layer: rgba(255, 255, 255, 0.1);
+        --like-lime: #00FF00;
+        --dislike-red: #FF0000;
+    }
+
+    html[dark] {
+        --yt-spec-general-background-a: #181818;
+        --yt-spec-general-background-b: #0f0f0f;
+        --yt-spec-brand-background-primary: rgba(33, 33, 33, 0.98);
+        --yt-spec-10-percent-layer: rgba(255, 255, 255, 0.1);
+    }
+
+    html:not([dark]) {
+        --yt-spec-general-background-a: #f9f9f9;
+        --yt-spec-general-background-b: #f1f1f1;
+        --yt-spec-brand-background-primary: rgba(255, 255, 255, 0.98);
+        --yt-spec-10-percent-layer: rgba(0, 0, 0, 0.1);
     }
 
     test() {
@@ -164,7 +181,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
             &:has(#dismissible.ytd-video-renderer > ytd-thumbnail a#thumbnail[href^="/shorts/"]) {
                 display: none;
             }
-        }
+        } // /* Notificatoin */
+        // ytd-notification-renderer.yt-multi-page-menu-section-renderer:has(a.yt-simple-endpoint.ytd-notification-renderer[href^="/shorts/"]) {
+        //     display: none;
+        // }
     }
 
     /* 🔎 Centered The Search Results */
@@ -483,7 +503,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
             ytd-rich-grid-renderer {
                 --ytd-rich-grid-items-per-row: var(--video-per-row-homepage) i;
                 #contents {
-                    max-width: calc(100% - 2 * 3vw);
+                    max-width: calc(100% - 2 * 1vw);
                     test();
                 }
             }
@@ -669,7 +689,9 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     /* "⚒️ Custom Appearance" */
     if (customAppearance=="Enabled") {
+
         if (oldBackground) {
+
             ytd-app[darker-dark-theme] {
                 background: var(--yt-spec-general-background-a) i;
             }
@@ -1121,11 +1143,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
 
     /* Revert the profile channel */
     ytd-video-owner-renderer[modern-metapanel] #avatar.ytd-video-owner-renderer {
-        width: 45px;
-        height: 45px;
+        width: 48px;
+        height: 48px;
         > img {
-            width: 45px;
-            height: 45px;
+            width: 48px;
+            height: 48px;
         }
     }
 
