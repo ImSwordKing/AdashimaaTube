@@ -33,7 +33,6 @@
 
 @advanced select customVideoDetails         "⚒️ Custom Video Details" ["Enabled", "Disabled"]
 @advanced checkbox NotifSub                 "  🔔 Hide Subscribed Bell Text" 0
-@advanced checkbox AmbGone                  "  ✨ Hide Ambient Mode Option" 1
 @advanced checkbox removeLikeAnimation      "  ❌ Remove Like Animation" 0
 @advanced checkbox shareBtn                 "  ➡️ Hide Share Button" 0
 @advanced checkbox downloadBtn              "  ⬇️ Hide Download Button" 0
@@ -612,13 +611,6 @@ Support me: https://ko-fi.com/sapondanaisriwan
 	    tp-yt-paper-button.style-scope.ytd-subscribe-button-renderer {
 		    display: flex!important;
 		    }
-
-
-	    /* Remove "Ambient Mode" from settings */
-	    #ytp-id-18 > .ytp-panel > .ytp-panel-menu > div.ytp-menuitem:nth-of-type(1) {
-	    	display: none if AmbGone;
-		    }
-
 
         /* 💬 Hide Comments Section */
         ytd-comments {
