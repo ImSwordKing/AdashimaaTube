@@ -1,13 +1,12 @@
 /* ==UserStyle==
 @name           `Watch9AdashimaaTube
 @author         sapondanaisriwan <sapondanaisriwan@gmail.com> (https://github.com/sapondanaisriwan) [Adashima#4066]
-
 @author         ImSwordKing (https://github.com/ImSwordKing)
 @description    Please report bugs via github issues
 @namespace      https://github.com/ImSwordKing
 @homepageURL    https://github.com/ImSwordKing/Watch9AdashimaaTube
 @supportURL     https://github.com/ImSwordKing/Watch9AdashimaaTube/issues
-@version        2.8.0
+@version        2.8.2
 @license        MIT
 @preprocessor   stylus
 
@@ -51,6 +50,7 @@
 @advanced checkbox navigationBar            "  🌑 Dark Navigation Bar" 0
 @advanced checkbox oldBackground            "  🧓 Old Background" 0
 @advanced checkbox navigationBar            "  🌑 Dark Navigation Bar" 0
+@advanced checkbox displayDislikeText       "  👎 Display Dislike Text" 0
 @advanced checkbox oldPlaylists             "  🧓 Old Playlists" 1
 @advanced checkbox searchBox                "  🌑 Dark Search Box" 0
 @advanced checkbox NosearchIco                "  🔎 Remove Search Icon in search" 1
@@ -690,6 +690,23 @@ Support me: https://ko-fi.com/sapondanaisriwan
     /* "⚒️ Custom Appearance" */
     if (customAppearance=="Enabled") {
 
+        /* 👎 Display 'DISLIKE' Text */
+        if (displayDislikeText) {
+            #segmented-dislike-button > ytd-toggle-button-renderer > yt-button-shape > button {
+                &:not(:has(span#text)) {
+
+                    & {
+                        margin: 0 16px;
+                    }
+
+                    &::after {
+                        content: 'DISLIKE';
+                        padding-left: 6px;
+                    }
+                }
+            }
+        }
+
         if (oldBackground) {
 
             ytd-app[darker-dark-theme] {
@@ -1182,7 +1199,7 @@ Support me: https://ko-fi.com/sapondanaisriwan
     .yt-spec-touch-feedback-shape__stroke {
         border-radius: var(--BorderRadius) i; // border: none i;
     }
-
+	
     /* Add spacing for dislike counts (return youtube dislike)*/
     .yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--segmented-end span {
         padding-left: 6px
@@ -1482,7 +1499,8 @@ Support me: https://ko-fi.com/sapondanaisriwan
     /* Collapse Navbar */
     ytd-mini-guide-entry-renderer[guide-refresh],
 
-    ytd-universal-watch-card-renderer[rounded] #hero.ytd-universal-watch-card-renderer {
+    ytd-universal-watch-card-renderer[rounded] #hero.ytd-universal-watch-card-renderer,
+    .ytp-videowall-still-round-large .ytp-videowall-still-image {
         border-radius: var(--BorderRadius) i;
     }
 
@@ -1615,6 +1633,11 @@ Support me: https://ko-fi.com/sapondanaisriwan
     /* Quality videos (HD/4k/8k/10k/20k/100k) lol */
     .ytp-swatch-color-white {
         color: var(--dislike-red) i;
+    }
+
+    /* Remove parentheses Credit to decembre, Pabli */
+    span.ytp-menu-label-secondary {
+        clip-path: inset(-3px 4px 0px 4px);
     }
 
     if (customAppearance=="Enabled" && restoreOldIcon) {
