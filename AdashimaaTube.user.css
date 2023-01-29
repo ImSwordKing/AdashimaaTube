@@ -6,7 +6,7 @@
 @namespace      https://github.com/ImSwordKing
 @homepageURL    https://github.com/ImSwordKing/Watch9AdashimaaTube
 @supportURL     https://github.com/ImSwordKing/Watch9AdashimaaTube/issues
-@version        2.8.2
+@version        2.8.2.1
 @license        MIT
 @preprocessor   stylus
 
@@ -44,7 +44,7 @@
 @advanced checkbox endCards                 "  💳 Hide End Cards" 0
 @advanced checkbox gameSection              "  🎮 Hide Game Section" 1
 @advanced checkbox musicSection             "  🎵 Hide Music Section" 0
-
+@advanced checkbox NoBloatShare             "  💾 Hide Social media in Share" 0
 @advanced select customAppearance           "⚒️ Custom Appearance" ["Enabled", "Disabled"]
 @advanced checkbox navigationBar            "  🌑 Dark Navigation Bar" 0
 @advanced checkbox oldBackground            "  🧓 Old Background" 0
@@ -66,13 +66,14 @@
 i=!important //
 t=transparent //
 /*
-Please report bugs via my email, github issue and discord(If I have some free time, I'll fix them)
-Contact: sapondanaisriwan@gmail.com
-Support me: https://ko-fi.com/sapondanaisriwan 
-Support me: https://ko-fi.com/sapondanaisriwan
-Support me: https://ko-fi.com/sapondanaisriwan
-Support me: https://ko-fi.com/sapondanaisriwan
-Support me: https://ko-fi.com/sapondanaisriwan
+Please report bugs via github issues (If I have some free time, I'll fix them)
+Report bugs related to Watch9AdashimaaTube here: https://github.com/ImSwordKing/Watch9AdashimaaTube
+AdashimaaTube OG creator contact (Do not contact for Watch9Adashimaa Related issues): sapondanaisriwan@gmail.com
+Support the OG creator here: https://ko-fi.com/sapondanaisriwan 
+Support the OG creator here: https://ko-fi.com/sapondanaisriwan
+Support the OG creator here: https://ko-fi.com/sapondanaisriwan
+Support the OG creator here: https://ko-fi.com/sapondanaisriwan
+Support the OG creator here: https://ko-fi.com/sapondanaisriwan
 */
 @-moz-document domain("youtube.com") {
     :root {
@@ -616,6 +617,10 @@ Support me: https://ko-fi.com/sapondanaisriwan
         ytd-comments {
             display: none if commentSection;
         }
+	
+		/* Remove Bloat from Share */
+		.yt-third-party-share-target-section-renderer.style-scope,
+		#community-post.yt-share-panel-header-renderer.style-scope {display: none if NoBloatShare;}
 
         #flexible-item-buttons > ytd-button-renderer > yt-button-shape {
 
