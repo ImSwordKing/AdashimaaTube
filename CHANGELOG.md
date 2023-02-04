@@ -1,5 +1,17 @@
 ## Changelog
 
+### v1.8.4
+- Fix hide channel handles.
+- Support YouTube Comment Translation Button thanks to [linkwanngo](https://github.com/linkwanggo).
+
+### v1.8.3
+- Add option to display the video count.
+
+![](https://i.imgur.com/dvbXi1W.png)
+
+- Add option to hide the channel handle.
+- Fixed some bugs(I forgot what i did)
+
 ### v1.8.2
 - Remove parentheses and rounded element.
 
