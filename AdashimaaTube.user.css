@@ -6,7 +6,7 @@
 @namespace      https://github.com/ImSwordKing
 @homepageURL    https://github.com/ImSwordKing/Watch9AdashimaaTube
 @supportURL     https://github.com/ImSwordKing/Watch9AdashimaaTube/issues
-@version        2.8.7.1
+@version        2.8.8
 @license        MIT
 @preprocessor   stylus
 
@@ -1145,6 +1145,11 @@ Support the OG creator here: https://ko-fi.com/sapondanaisriwan
     /* REVERT WATCH PAGE */
     #meta-contents[hidden],
     #info-contents[hidden] {
+        display: block i;
+    }
+
+    /* Revert back the hashtag on above the video title */
+    #title #super-title[hidden] {
         display: block i;
     }
 
