@@ -6,16 +6,16 @@
 @namespace      https://github.com/ImSwordKing
 @homepageURL    https://github.com/ImSwordKing/Watch9AdashimaaTube
 @supportURL     https://github.com/ImSwordKing/Watch9AdashimaaTube/issues
-@version        2.9.1
+@version        2.9.1.1
 @license        MIT
 @preprocessor   stylus
 
 @advanced select customSP                   "⚒️ Custom Search Page (Beta)" ["Disabled", "Enabled"]
 @advanced checkbox mainSearchResults        "  🔎 Search Result In A Grid" 1
+@advanced checkbox channelSearchResults     "  🔎 CH Search Result In A Grid" 1
 @advanced checkbox channelGrouping          "  🔎 Channel Grouping" 1
 @advanced checkbox hideChannel              "  🔎 Hide Channel" 0
 @advanced checkbox hideRightSidebar         "  🫣 Hide right sidebar" 0
-
 
 @advanced checkbox antiShorts               "❌ Anti-Shorts" 0
 @advanced range customProfileRadius         "⚙️ Profile Radius" [50, 0, 50, 1, '%']
@@ -40,11 +40,9 @@
 @advanced checkbox channelHandle            "  🫣 Hide Channel Handles" 0
 @advanced checkbox displayVideoCount        "  📻 Display Videos Count" 0
 @advanced checkbox sortByOldest             "  🔃 Sort by Oldest" 0
-@advanced checkbox channelSearchResults     "  🔎 CH Search Result In A Grid" 1
 
 @advanced select customVideoDetails         "⚒️ Custom Video Details" ["Enabled", "Disabled"]
 @advanced checkbox NotifSub                 "  🔔 Hide Subscribed Bell Text" 0
-@advanced checkbox removeLikeAnimation      "  ❌ Disabled Like Animation" 0
 @advanced checkbox shareBtn                 "  ➡️ Hide Share Button" 0
 @advanced checkbox downloadBtn              "  ⬇️ Hide Download Button" 0
 @advanced checkbox clipBtn                  "  ✂️ Hide Clip Button" 0
@@ -55,18 +53,19 @@
 @advanced checkbox endCards                 "  💳 Hide End Cards" 0
 @advanced checkbox gameSection              "  🎮 Hide Game Section" 1
 @advanced checkbox musicSection             "  🎵 Hide Music Section" 0
+@advanced checkbox removeLikeAnimation      "  ❌ Disabled Like Animation" 0
 @advanced checkbox NoBloatShare             "  💾 Hide Social media in Share" 0
+
 @advanced select customAppearance           "⚒️ Custom Appearance" ["Enabled", "Disabled"]
 @advanced checkbox navigationBar            "  🌑 Dark Navigation Bar" 0
+@advanced checkbox scroll_Bar               "  🌑 Dark Scroll Bar" 0
+@advanced checkbox searchBox                "  🌑 Dark Search Box" 0
 @advanced checkbox oldBackground            "  🧓 Old Background" 0
-@advanced checkbox navigationBar            "  🌑 Dark Navigation Bar" 0
 @advanced checkbox displayDislikeText       "  👎 Display Dislike Text" 0
 @advanced checkbox oldPlaylists             "  🧓 Old Playlists" 1
-@advanced checkbox searchBox                "  🌑 Dark Search Box" 0
+@advanced checkbox blueCheckMark            "  ✅ Blue Check Mark" 0
 @advanced checkbox NosearchIco                "  🔎 Remove Search Icon in search" 1
 @advanced checkbox SmallSearchBox5               "  🔎 Compact Search" 0
-@advanced checkbox scroll_Bar               "  🌑 Dark Scroll Bar" 0
-@advanced checkbox blueCheckMark            "  ✅ Blue Check Mark" 0
 
 @advanced select customLikeDislike          "⚒️ Custom Colors For Like/Dislike (Won't play nice with Old Icons)" ["Enabled", "Disabled"]
 @advanced checkbox customThumbs             "  🗿 Colorize Thumbs" 0
@@ -443,7 +442,7 @@ Support the OG creator here: https://ko-fi.com/sapondanaisriwan
 
         if (playlistsGrouping) {
             /* (Inspire by Youtube Redux) Sort without js 😎 */
-            [page-subtype="home"] ytd-rich-item-renderer:has(#content.ytd-rich-item-renderer > ytd-rich-grid-media[mini-mode] > #dismissible.ytd-rich-grid-media > ytd-thumbnail.ytd-rich-grid-media > a#thumbnail[href*="&list="]) {
+            [page-subtype="home"] ytd-rich-item-renderer:has(#content.ytd-rich-item-renderer > ytd-rich-grid-media.ytd-rich-item-renderer > #dismissible.ytd-rich-grid-media > ytd-thumbnail.ytd-rich-grid-media > a#thumbnail[href*="&list="]) {
                 order: -1;
             }
         }
@@ -2399,12 +2398,65 @@ Support the OG creator here: https://ko-fi.com/sapondanaisriwan
     if (customSP=="Enabled") {
         if (mainSearchResults) {
             ytd-search.ytd-page-manager {
-                
                 #contents.ytd-section-list-renderer {
                     display: grid;
                     grid-template-columns: repeat(auto-fit, minmax(246px, 1fr));
                 }
-        
+
+                #meta {
+                    display: contents;
+                }
+
+                #title-wrapper.ytd-video-renderer {
+                    order: 1;
+                }
+
+                ytd-video-renderer[use-search-ui] #channel-info.ytd-video-renderer {
+                    order: 2;
+                    padding: 0;
+                }
+
+                ytd-video-meta-block,
+                .ytd-video-meta-block[meta-block] {
+                    order: 3;
+                }
+
+                #badges.ytd-video-renderer {
+                    order: 4;
+                }
+
+                #channel-thumbnail.ytd-video-renderer {
+                    padding-right: 0;
+                    position: absolute;
+                    top: 12px;
+                }
+
+                yt-img-shadow.ytd-video-renderer {
+                    width: 36px;
+                    height: 36px;
+                    img {
+                        width: 36px;
+                        height: 36px;
+                    }
+                }
+
+                #channel-name.ytd-video-renderer {
+                    align-self: unset;
+                }
+
+                .text-wrapper.ytd-video-renderer {
+                    position: relative;
+                }
+
+
+                #channel-name.ytd-video-renderer,
+                #title-wrapper.ytd-video-renderer,
+                ytd-video-meta-block,
+                .ytd-video-meta-block[meta-block],
+                #badges.ytd-video-renderer {
+                    padding-left: 48px;
+                }
+
                 yt-showing-results-for-renderer,
                 #contents.ytd-item-section-renderer,
                 ytd-item-section-renderer,
@@ -2420,7 +2472,7 @@ Support the OG creator here: https://ko-fi.com/sapondanaisriwan
                 ytd-menu-renderer.ytd-video-renderer {
                     margin-top: 0;
                 }
-                
+
                 /* Remove title container -> "People also watch", "Learning related" and etc */
                 .grid-subheader.ytd-shelf-renderer,
                 ytd-exploratory-results-renderer.ytd-item-section-renderer,
@@ -2433,7 +2485,9 @@ Support the OG creator here: https://ko-fi.com/sapondanaisriwan
                 #expandable-metadata.ytd-video-renderer:not(:empty) {
                     display: none;
                 }
-                
+
+                ytd-radio-renderer,
+                ytd-channel-renderer,
                 ytd-playlist-renderer,
                 ytd-video-renderer {
                     margin-left: calc(var(--ytd-rich-grid-item-margin)/2);
@@ -2491,6 +2545,10 @@ Support the OG creator here: https://ko-fi.com/sapondanaisriwan
                     margin-bottom: 40px;
                 }
 
+                ytd-video-renderer[use-search-ui] .text-wrapper.ytd-video-renderer {
+                    max-width: unset;
+                    width: 100%;
+                }
 
                 #header-container {
                     margin-bottom: 16px;
@@ -2569,6 +2627,11 @@ Support the OG creator here: https://ko-fi.com/sapondanaisriwan
                 }
 
 
+                /* Mix */
+                #content.ytd-radio-renderer {
+                    flex: none;
+                }
+
 
                 /* ----- Playlist ----- */
                 ytd-playlist-renderer {
@@ -2600,12 +2663,12 @@ Support the OG creator here: https://ko-fi.com/sapondanaisriwan
                 #content.ytd-playlist-renderer {
                     flex: none;
                 }
-                
+
                 /* Force "View more" new line */
                 #view-more.ytd-playlist-renderer {
                     display: block;
                 }
-                
+
                 /* ----- Channel author ----- */
                 /* Hide bell icon */
                 #notification-preference-button {
@@ -2620,6 +2683,26 @@ Support the OG creator here: https://ko-fi.com/sapondanaisriwan
                     line-height: 2rem;
                 }
             }
+        }
+
+        ytd-button-renderer.ytd-item-section-renderer:last-child,
+        ytd-compact-radio-renderer.ytd-item-section-renderer:last-child,
+        ytd-compact-video-renderer.ytd-item-section-renderer:last-child,
+        ytd-compact-movie-renderer.ytd-item-section-renderer:last-child,
+        ytd-compact-playlist-renderer.ytd-item-section-renderer:last-child,
+        ytd-emergency-onebox-renderer.ytd-item-section-renderer:last-child,
+        ytd-movie-renderer.ytd-item-section-renderer:last-child,
+        ytd-playlist-renderer.ytd-item-section-renderer:last-child,
+        ytd-show-renderer.ytd-item-section-renderer:last-child,
+        ytd-radio-renderer.ytd-item-section-renderer:last-child,
+        yt-search-no-results-renderer.ytd-item-section-renderer:last-child,
+        ytd-video-renderer.ytd-item-section-renderer:last-child,
+        ytd-channel-renderer.ytd-item-section-renderer:last-child,
+        ytd-promoted-sparkles-text-search-renderer.ytd-item-section-renderer:last-child,
+        ytd-web-answer-renderer.ytd-item-section-renderer:last-child,
+        ytd-clarification-renderer.ytd-item-section-renderer,
+        ytd-info-panel-container-renderer.ytd-item-section-renderer {
+            margin-bottom: 0;
         }
 
         ytd-search.ytd-page-manager {
