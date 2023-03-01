@@ -1,5 +1,19 @@
 ## Changelog
 
+### v1.9.6
+- Add more spacing between watch page buttons (This took me a day to do this because pixel perfection is very hard for me)
+
+### v1.9.5
+- Fixed the overlapping elements issues
+![before](https://user-images.githubusercontent.com/64634605/221420394-2df57914-8de3-4b9d-9351-edb0c91aa052.png)
+![after](https://user-images.githubusercontent.com/64634605/221416635-8dba96f2-598f-4cf4-aebd-2130c6ebe7cb.png)
+
+- Make AdashimaaTube compatible with [Local YouTube Downloader](https://greasyfork.org/en/scripts/369400) :)
+
+### 1.9.4
+- Add more the old icons.
+- [Search results in a grid](https://www.youtube.com/watch?v=KSk-XABJ4sg) now allow you to customize the video for each row :)
+
 ### 1.9.3
 - Fixed some bugs when the "Search Result In A Grid" option was turn on.
 - Add the weirdest bug (duplicate video and channel)
