@@ -7,7 +7,7 @@
 @homepageURL    https://github.com/ImSwordKing/Watch9AdashimaaTube
 @supportURL     https://github.com/ImSwordKing/Watch9AdashimaaTube/issues
 @version        2.9.6
-@version        5.0.0
+@version        5.0.0.1
 @license        MIT
 @preprocessor   stylus
 
@@ -67,6 +67,11 @@
 @advanced checkbox hideChannel              "  🫣 Hide Channel Container" 0
 @advanced checkbox spHideChannelProfile     "  🫣 Hide Channel Profile" 1
 @advanced checkbox hideRightSidebar         "  🫣 Hide Right Sidebar" 0
+
+@advanced select customOldLayout            "⚒️ Old Layout (Keep this disabled if you use Custom Colors)" ["Enabled", "Disabled"]
+@advanced checkbox oldBackground            "  🖼️ Old Background" 0
+@advanced checkbox oldPlaylists             "  ▶️ Old Playlists" 0
+@advanced checkbox OldIcons                 "  🧓 Old Icons" 0
 
 ==/UserStyle== */
 /*
