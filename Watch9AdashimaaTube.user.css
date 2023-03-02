@@ -7,7 +7,7 @@
 @homepageURL    https://github.com/ImSwordKing/Watch9AdashimaaTube
 @supportURL     https://github.com/ImSwordKing/Watch9AdashimaaTube/issues
 @version        2.9.6
-@version        5.0.0.1
+@version        5.0.0.11
 @license        MIT
 @preprocessor   stylus
 
@@ -18,6 +18,9 @@
 @advanced checkbox moreAnimation            "🎬 More Animations" 0
 @advanced checkbox subscriptionsGrid        "📄 Subsc In A Grid" 1
 @advanced checkbox watchedOverlay           "👀 Watched Overlay" 0
+@advanced checkbox oldBackground            "  🖼️ Old Background" 0
+@advanced checkbox oldPlaylists             "  ▶️ Old Playlists" 0
+@advanced checkbox OldIcons                 "  🧓 Old Icons" 0
 
 @advanced select customHP                   "⚒️ Custom Home Page" ["Disabled", "Enabled"]
 @advanced range videoPerRowHP               "  🏠 Videos Per Row" [5, 1, 20, 1]
@@ -67,11 +70,6 @@
 @advanced checkbox hideChannel              "  🫣 Hide Channel Container" 0
 @advanced checkbox spHideChannelProfile     "  🫣 Hide Channel Profile" 1
 @advanced checkbox hideRightSidebar         "  🫣 Hide Right Sidebar" 0
-
-@advanced select customOldLayout            "⚒️ Old Layout (Keep this disabled if you use Custom Colors)" ["Enabled", "Disabled"]
-@advanced checkbox oldBackground            "  🖼️ Old Background" 0
-@advanced checkbox oldPlaylists             "  ▶️ Old Playlists" 0
-@advanced checkbox OldIcons                 "  🧓 Old Icons" 0
 
 ==/UserStyle== */
 /*
