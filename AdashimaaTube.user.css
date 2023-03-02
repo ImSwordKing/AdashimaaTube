@@ -10,6 +10,8 @@
 @license        MIT
 @preprocessor   stylus
 
+/* Currently Broken. Not fixing this. check Legacy and New for newer updates based on Legacy (All new features that are in AdashimaaTube will not be added rn)*/
+
 @advanced select customMoreVideos           "⚒️ Video Appearance" ["Disabled", "Enabled"]
 @advanced range videoPerRow                 "  ⚙️ Videos Per Rows" [5, 1, 15, 1]
 @advanced checkbox hideProfile              "  🫣 Hide Channel Profile" 1
@@ -84,7 +86,6 @@
 @advanced checkbox OldIcons                 "  🧓 Old Icons" 0
 ==/UserStyle== */
 /* Basically Legacy But will update more often. If you want a smoother experience use Legacy */
-/* Currently Broken. Not fixing it */
 /*
 Please report bugs via github issues (If I have some free time, I'll fix them)
 Report bugs related to Watch9AdashimaaTube here: https://github.com/ImSwordKing/Watch9AdashimaaTube
