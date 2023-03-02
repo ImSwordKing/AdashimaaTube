@@ -20,7 +20,7 @@
 @advanced checkbox watchedOverlay           "👀 Watched Overlay" 0
 @advanced checkbox oldBackground            "  🖼️ Old Background" 0
 @advanced checkbox oldPlaylists             "  ▶️ Old Playlists" 0
-@advanced checkbox OldIcons                 "  🧓 Old Icons" 0
+@advanced checkbox restoreOldIcon                 "  🧓 Old Icons" 0
 
 @advanced select customHP                   "⚒️ Custom Home Page" ["Disabled", "Enabled"]
 @advanced range videoPerRowHP               "  🏠 Videos Per Row" [5, 1, 20, 1]
