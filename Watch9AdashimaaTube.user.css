@@ -7,20 +7,20 @@
 @homepageURL    https://github.com/ImSwordKing/Watch9AdashimaaTube
 @supportURL     https://github.com/ImSwordKing/Watch9AdashimaaTube/issues
 @version        2.9.6
-@version        5.0.0.11
+@version        5.0.0.12
 @license        MIT
 @preprocessor   stylus
 
-@advanced range customProfileRadius         "⚙️ Profile Radius" [50, 0, 50, 1, '%']
-@advanced range customBorderRadius          "⚙️ Border Radius" [0, 0, 24, 1, 'px']
-@advanced select rotateVideos               "🔄 Rotate Videos" ["Disabled", "90deg" ,"180deg", "270deg"]
-@advanced checkbox displayFullTitle         "🎦 Display Full Title For Videos" 0
-@advanced checkbox moreAnimation            "🎬 More Animations" 0
-@advanced checkbox subscriptionsGrid        "📄 Subsc In A Grid" 1
-@advanced checkbox watchedOverlay           "👀 Watched Overlay" 0
+@advanced range customProfileRadius         "  ⚙️ Profile Radius" [50, 0, 50, 1, '%']
+@advanced range customBorderRadius          "  ⚙️ Border Radius" [0, 0, 24, 1, 'px']
+@advanced select rotateVideos               "  🔄 Rotate Videos" ["Disabled", "90deg" ,"180deg", "270deg"]
+@advanced checkbox displayFullTitle         "  🎦 Display Full Title For Videos" 0
+@advanced checkbox moreAnimation            "  🎬 More Animations" 0
+@advanced checkbox subscriptionsGrid        "  📄 Subsc In A Grid" 1
+@advanced checkbox watchedOverlay           "  👀 Watched Overlay" 0
 @advanced checkbox oldBackground            "  🖼️ Old Background" 0
 @advanced checkbox oldPlaylists             "  ▶️ Old Playlists" 0
-@advanced checkbox restoreOldIcon                 "  🧓 Old Icons" 0
+@advanced checkbox restoreOldIcon           "  🧓 Old Icons" 0
 
 @advanced select customHP                   "⚒️ Custom Home Page" ["Disabled", "Enabled"]
 @advanced range videoPerRowHP               "  🏠 Videos Per Row" [5, 1, 20, 1]
@@ -35,7 +35,7 @@
 
 @advanced select customVideoDetails         "⚒️ Custom Video Details" ["Enabled", "Disabled"]
 @advanced checkbox NotifSub                 "  🔔 Hide Subscribed Bell Text" 0
-@advanced color SubBtnColor                 "🎨 Subscribe Button Color (New button only)" #FF0000
+@advanced color SubBtnColor                 "  🎨 Subscribe Button Color (New button only)" #FF0000
 @advanced checkbox removeLikeAnimation      "  ❌ Disabled Like Animation" 0
 @advanced checkbox shareBtn                 "  ➡️ Hide Share Button" 0
 @advanced checkbox downloadBtn              "  ⬇️ Hide Download Button" 0
@@ -50,14 +50,14 @@
 @advanced checkbox NoBloatShare             "  💾 Hide Social media in Share" 0
 
 @advanced select customAppearance           "⚒️ Custom Appearance" ["Enabled", "Disabled"]
-@advanced checkbox antiShorts               "❌ Anti-Shorts" 0
-@advanced checkbox removeTaps               "❌ Remove Taps" 0
+@advanced checkbox antiShorts               "  ❌ Anti-Shorts" 0
+@advanced checkbox removeTaps               "  ❌ Remove Taps" 0
 @advanced checkbox navigationBar            "  🌑 Dark Navigation Bar" 0
 @advanced checkbox scroll_Bar               "  🌑 Dark Scroll Bar" 0
 @advanced checkbox searchBox                "  🌑 Dark Search Box" 0
 @advanced checkbox displayDislikeText       "  👎 Display Dislike Text" 0
-@advanced checkbox NosearchIco                "  🔎 Remove Search Icon in search" 1
-@advanced checkbox SmallSearchBox5               "  🔎 Compact Search" 1
+@advanced checkbox NosearchIco              "  🔎 Remove Search Icon in search" 1
+@advanced checkbox SmallSearchBox5          "  🔎 Compact Search" 1
 
 @advanced select customLikeDislike          "⚒️ Custom Colors For Like/Dislike (Won't play nice with Old Icons)" ["Enabled", "Disabled"]
 @advanced checkbox customThumbs             "  🗿 Colorize Thumbs" 0
